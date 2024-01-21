@@ -1,0 +1,55 @@
+.mat-input-element::placeholder{
+    color: #DDE6ED;
+ }
+
+// mat-icon-stepper selected color change 
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: #DDE6ED!important;
+}
+
+//input outline color
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #526D82!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #9DB2BF!important;
+}
+
+// mat-input error outline color
+.mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: red!important;
+    opacity: 0.8!important;
+}
+
+// mat-input carent color
+.mat-input-element {
+    caret-color: #DDE6ED!important;
+}
+
+// mat-input error carent color
+.mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: #DDE6ED!important;
+}
+
+// mat-label normal state style
+.mat-form-field-label {
+    color: #DDE6ED!important;
+    // color: $mainColor!important;
+}
+
+// mat-label focused style
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: #DDE6ED!important;
+}
+
+// mat-label error style
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: red!important;
+}
+
+// .mat-form-field-infix {
+//     border-top: unset;
+// }
