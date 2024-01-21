@@ -1,0 +1,15 @@
+.filter-container {
+    padding: 26px 50px 10px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .filter-field {
+        .form-field {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+    }
+}

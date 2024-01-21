@@ -8,6 +8,11 @@
     align-items: center;
 }
 
+.d-align-start {
+    display: flex;
+    align-items: flex-start;
+}
+
 @for $width from 1 through 100 {
     .w-#{$width} {
         width: calc(#{$width} * 1%) !important;

@@ -5,8 +5,32 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: DashboardComponent
+    component: DashboardComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'employee-list'
+      },
+      {
+        path: 'employee-list',
+        loadChildren: () => import('./modules/employee-list/employee-list.module').then(
+          (m) => m.EmployeeListModule
+        )
+      },
+      {
+        path: 'employee-detail',
+        loadChildren: () => import('./modules/employee-detail/employee-detail.module').then(
+          (m) => m.EmployeeDetailModule
+        )
+      },
+      {
+        path: 'add-employee',
+        loadChildren: () => import('./modules/add-employee/add-employee.module').then(
+          (m) => m.AddEmployeeModule
+        )
+      },
+    ]
   }
 ];
 

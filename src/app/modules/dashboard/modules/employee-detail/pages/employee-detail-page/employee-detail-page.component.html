@@ -1,0 +1,96 @@
+<div class="employee-detail-container">
+    <div class="back-button-section">
+        <div>
+            <button mat-button (click)="onClickBackButton()" class="btn btn-md">
+                Ok
+            </button>
+        </div>
+    </div>
+
+    <div class="basic-info-section base-card">
+        <div class="profile-photo-section">
+            <img class="profile-img" src="./assets/images/default-profile-picture.png" alt="">
+        </div>
+        <div class="profile-section sz-48 font-600">
+            <div class="first-name ">
+                {{employeeData.firstName}}
+            </div>
+            <div class="last-name">
+                {{employeeData.lastName}}
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+    <div class="personal-section base-card">
+        <div class="personal-data">
+            <div class="sz-20 font-600 mb-8">
+                Backoffice Username
+            </div>
+            <div class="sz-20">
+                {{employeeData.username}}
+            </div>
+        </div>
+        <div class="personal-data">
+            <div class="sz-20 font-600 mb-8">
+                Employee Email
+            </div>
+            <div class="sz-20">
+                {{employeeData.email}}
+            </div>
+        </div>
+        <div class="personal-data">
+            <div class="sz-20 font-600 mb-8">
+                Employee Birth Date
+            </div>
+            <div class="sz-20">
+                {{employeeData.birthDate | fullDateFormatPipe}}
+            </div>
+        </div>
+    </div>
+
+    <div class="job-section base-card">
+        <div class="job-data">
+            <div class="sz-20 font-600 mb-8">
+                Employee ID
+            </div>
+            <div class="sz-20">
+                {{employeeData.id}}
+            </div>
+        </div>
+        <div class="job-data">
+            <div class="sz-20 font-600 mb-8">
+                Employee Basic Salary
+            </div>
+            <div class="sz-20">
+                {{employeeData.basicSalary | rupiahCurrencyPipe}}
+            </div>
+        </div>
+        <div class="job-data">
+            <div class="sz-20 font-600 mb-8">
+                Division / Group
+            </div>
+            <div class="sz-20">
+                {{employeeData.group}}
+            </div>
+        </div>
+        <div class="job-data">
+            <div class="sz-20 font-600 mb-8">
+                Employement Status
+            </div>
+            <div class="sz-20">
+                {{employeeData.status}}
+            </div>
+        </div>
+        <div class="job-data">
+            <div class="sz-20 font-600 mb-8">
+                Last Active
+            </div>
+            <div class="sz-20">
+                {{employeeData.description | fullDateFormatPipe}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="table-container base-card">
+    <table mat-table [dataSource]="employeeListData" class="table-content">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef>Username</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.username }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef>First Name</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.firstName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef>Last Name</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.lastName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.status }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="group">
+            <th mat-header-cell *matHeaderCellDef>Group</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.group }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="primary" (click)="onEditEmployeeData(row, $event)">
+                    <mat-icon class="edit-icon">edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="onDeleteEmployeeData(row, $event)">
+                    <mat-icon class="delete-icon">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="employeeTableHeader"></tr>
+        <tr mat-row *matRowDef="let row; columns: employeeTableHeader;" (click)="onClickEmployeeRow(row)"></tr>
+    </table>
+</div>

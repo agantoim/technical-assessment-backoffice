@@ -1,0 +1,24 @@
+<div class="filter-container base-card">
+    <div class="filter-field">
+        <form class="form-field" [formGroup]="employeeListFilterForm">
+            <mat-form-field floatLabel="never" appearance="outline">
+                <input matInput type="text" formControlName="username" placeholder="Search by username" />
+            </mat-form-field>
+
+            <mat-form-field floatLabel="never" appearance="outline">
+                <input matInput type="text" formControlName="name" placeholder="Search by name" />
+            </mat-form-field>
+
+            <mat-form-field floatLabel="never" appearance="outline">
+                <input matInput type="text" formControlName="email" placeholder="Search by email" />
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="add-employee-button">
+        <div class="login-button">
+            <button mat-button class="btn btn-md">
+                Add Employee
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .table-content {
+        background: #27374D;
+        width: 95%;
+    }
+
+    .mat-header-cell {
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .mat-header-cell, .mat-cell {
+        padding: 8px; 
+        text-align: center;
+        color: #edeced;
+    }
+
+    .mat-row:hover {
+        background-color: #edeced;
+        cursor: pointer;
+
+        .mat-cell {
+            color: #27374D;
+        }
+    }
+
+    .edit-icon {
+        color: green;
+    }
+
+    .delete-icon {
+        color: red;
+    }
+}
+  
+  
