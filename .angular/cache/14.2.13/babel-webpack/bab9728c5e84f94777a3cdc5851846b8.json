@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const LOGIN_CREDENTIALS = {\n  USERNAME: 'admin',\n  PASSWORD: 'adminadmin**'\n};","map":null,"metadata":{},"sourceType":"module"}

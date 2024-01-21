@@ -1,0 +1,17 @@
+.btn {
+    padding: 8px 24px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &-sm {
+        width: 120px;
+    }
+
+    &-md {
+        width: 240px;
+    }
+}

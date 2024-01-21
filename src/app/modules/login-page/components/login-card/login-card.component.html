@@ -1,0 +1,77 @@
+<div>
+	<app-base-toaster
+		*ngIf="toasterShow"
+		[message]="toasterMessage"
+		[type]="toasterType"
+		(onClose)="onToasterClose()"
+	></app-base-toaster>
+</div>
+
+<div class="login-form-container base-card">
+	<div class="left-container">
+		<img
+			class="login-img"
+			src="./../../../../../assets/images/img-office-login.jpg"
+			alt="office"
+		/>
+	</div>
+	<div class="right-container">
+		<div class="login-title sz-24 font-600">BACKOFFICE</div>
+		<div class="login-field">
+			<form [formGroup]="loginForm">
+				<mat-form-field
+					appearance="outline"
+					[hideRequiredMarker]="true"
+				>
+					<mat-label>Username</mat-label>
+					<input
+						matInput
+						type="text"
+						formControlName="username"
+						placeholder="Input your username"
+					/>
+					<mat-error *ngIf="username?.hasError('required')">
+						Username is required
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field
+					appearance="outline"
+					[hideRequiredMarker]="true"
+				>
+					<mat-label>Password</mat-label>
+					<input
+						matInput
+						[type]="hidePassword ? 'password' : 'text'"
+						formControlName="password"
+						placeholder="Input your password"
+					/>
+					<button
+						mat-icon-button
+						matSuffix
+						(click)="hidePassword = !hidePassword"
+						[attr.aria-label]="'Hide password'"
+						[attr.aria-pressed]="hidePassword"
+					>
+						<mat-icon>{{
+							hidePassword ? "visibility_off" : "visibility"
+						}}</mat-icon>
+					</button>
+					<mat-error *ngIf="password?.hasError('required')"
+						>Password is required</mat-error
+					>
+				</mat-form-field>
+				<div class="login-button">
+					<button
+						mat-button
+						[disabled]="loginForm.invalid"
+						(click)="onClickLoginButton($event)"
+						class="btn btn-md"
+					>
+						Login
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

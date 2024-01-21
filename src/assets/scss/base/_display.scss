@@ -1,0 +1,15 @@
+.d-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.d-align-center {
+    display: flex;
+    align-items: center;
+}
+
+@for $width from 1 through 100 {
+    .w-#{$width} {
+        width: calc(#{$width} * 1%) !important;
+    }
+}
