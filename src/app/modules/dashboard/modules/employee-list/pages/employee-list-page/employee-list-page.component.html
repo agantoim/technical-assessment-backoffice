@@ -8,7 +8,7 @@
             Log Out
         </button>
     </div>
-    <app-employee-list-filter></app-employee-list-filter>
+    <app-employee-list-filter (searchClicked)="onSearch($event)"></app-employee-list-filter>
     <app-employee-list-data [employeeTableHeader]="employeeTableHeader" [employeeListData]="employeeListData"
         (onClickEdit)="onEditClicked()" (onClickDelete)="onDeleteClicked()"></app-employee-list-data>
 </div>

@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, NgZone, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, NgZone, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { EmployeeListDataModel } from '../../shared/model/employee-list-data.model';
 import { PaginationModel } from 'src/app/shared/model/pagination.model';
 import { EmployeeListTableHeaderModel } from '../../shared/model/employee-list-table-header.model';
@@ -14,7 +14,7 @@ import { MatPaginator } from '@angular/material/paginator';
     styleUrls: ['./employee-list-data.component.scss'],
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class EmployeeListDataComponent implements OnInit {
+export class EmployeeListDataComponent implements OnInit, OnChanges {
 
     @Input()
     public employeeTableHeader: string[];
@@ -35,6 +35,10 @@ export class EmployeeListDataComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+        this.initEmployeeTableData();
+    }
+
+    ngOnChanges(): void {
         this.initEmployeeTableData();
     }
 

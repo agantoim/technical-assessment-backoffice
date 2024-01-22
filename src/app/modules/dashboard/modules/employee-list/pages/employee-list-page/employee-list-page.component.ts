@@ -18,6 +18,7 @@ export class EmployeeListPageComponent implements OnInit {
     public toasterMessage: string;
     public toasterType: 'success' | 'warning';
     public toasterShow: boolean = false;
+    private originalEmployeeListData: EmployeeListDataModel[];
 
     constructor(
         private storageService: StorageService,
@@ -28,6 +29,7 @@ export class EmployeeListPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.setEmployeeTableData();
+        this.originalEmployeeListData = [...this.employeeListData];
     }
 
     private setEmployeeTableData() {
@@ -57,4 +59,17 @@ export class EmployeeListPageComponent implements OnInit {
         this.toasterType = 'warning';
         this.toasterShow = true;
     }
+
+    public onSearch(searchCriteria: any): void {
+        this.employeeListData = this.originalEmployeeListData.filter(employee => {
+            const fullName = `${employee.firstName} ${employee.lastName}`.toLowerCase();
+
+            return (
+                employee.username.includes(searchCriteria.username) &&
+                fullName.includes(searchCriteria.name.toLowerCase()) &&
+                employee.email.includes(searchCriteria.email)
+            );
+        });
+    }
+
 }

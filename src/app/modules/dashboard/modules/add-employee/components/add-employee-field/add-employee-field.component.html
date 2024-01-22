@@ -1,0 +1,43 @@
+<div class="add-employee-field-container base-card">
+    <form class="add-employee-form" [formGroup]="employeeForm" (ngSubmit)="addNewEmployee()">
+        <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="firstName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lastName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="date" placeholder="Birth Date" formControlName="birthDate">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="number" placeholder="Basic Salary" formControlName="basicSalary">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Status" formControlName="status">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Group" formControlName="group">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="date" placeholder="Description" formControlName="description">
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary" [disabled]="!employeeForm.valid">Add
+            Employee</button>
+    </form>
+
+</div>

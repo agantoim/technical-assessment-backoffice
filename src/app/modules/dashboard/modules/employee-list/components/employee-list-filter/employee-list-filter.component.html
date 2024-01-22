@@ -2,21 +2,23 @@
     <div class="filter-field">
         <form class="form-field" [formGroup]="employeeListFilterForm">
             <mat-form-field floatLabel="never" appearance="outline">
-                <input matInput type="text" formControlName="username" placeholder="Search by username" />
+                <input matInput type="text" formControlName="username" placeholder="Search by username"
+                    (input)="onSearch()" />
             </mat-form-field>
 
             <mat-form-field floatLabel="never" appearance="outline">
-                <input matInput type="text" formControlName="name" placeholder="Search by name" />
+                <input matInput type="text" formControlName="name" placeholder="Search by name" (input)="onSearch()" />
             </mat-form-field>
 
             <mat-form-field floatLabel="never" appearance="outline">
-                <input matInput type="text" formControlName="email" placeholder="Search by email" />
+                <input matInput type="text" formControlName="email" placeholder="Search by email"
+                    (input)="onSearch()" />
             </mat-form-field>
         </form>
     </div>
     <div class="add-employee-button">
         <div class="login-button">
-            <button mat-button class="btn btn-md">
+            <button mat-button class="btn btn-md" (click)="onClickAddEmployee()">
                 Add Employee
             </button>
         </div>
