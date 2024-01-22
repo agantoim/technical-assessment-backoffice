@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LOGIN_CREDENTIALS } from 'src/app/shared/constant/credentials.const';
+import { UserAccoundModel } from 'src/app/shared/model/user-account.model';
+import { StorageService } from 'src/app/shared/service/storage.service';
 
 @Component({
 	selector: 'app-login-card',
@@ -15,7 +18,9 @@ export class LoginCardComponent implements OnInit {
 	public toasterShow: boolean = false;
 
 	constructor(
-		private fb: FormBuilder
+		private fb: FormBuilder,
+		private storageService: StorageService,
+		private router: Router
 	) { }
 
 	ngOnInit(): void {
@@ -38,7 +43,6 @@ export class LoginCardComponent implements OnInit {
 	}
 
 	public onClickLoginButton(e: any) {
-		console.log(e);
 		if (this.loginForm.valid) {
 			const account = {
 				username: this.username?.value,
@@ -47,9 +51,20 @@ export class LoginCardComponent implements OnInit {
 
 			if (account.username === LOGIN_CREDENTIALS.USERNAME &&
 				account.password === LOGIN_CREDENTIALS.PASSWORD) {
+				const userAccountData = new UserAccoundModel();
+				userAccountData.token = '123456789'
+				userAccountData.username = account.username;
+				userAccountData.passowrd = account.password;
+				this.storageService.storeAccount(userAccountData);
 				this.toasterMessage = 'Login successful!';
 				this.toasterType = 'success';
 				this.toasterShow = true;
+				setTimeout(() => {
+					if (this.storageService.getAccount()) {
+						this.router.navigate(['/dashboard/employee-list']);
+					}
+				}, 3000);
+
 			} else {
 				this.toasterMessage = 'Invalid username or password!';
 				this.toasterType = 'warning';

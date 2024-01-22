@@ -25,9 +25,7 @@ export class EmployeeDetailPageComponent implements OnInit {
     private getEmployeeData() {
         this.employeeId = Number(this.route.snapshot.queryParamMap.get('id'));
         const findEmployeeData = EMPLOYEE_DATABASE.find(emp => emp.id === this.employeeId);
-        this.employeeData = findEmployeeData || ({} as EmployeeListDataModel); // Inisialisasi dengan objek kosong jika undefined
-        console.log('id', this.employeeId);
-        console.log('employeeData', this.employeeData);
+        this.employeeData = findEmployeeData || ({} as EmployeeListDataModel);
     }
 
     public onClickBackButton() {

@@ -1,3 +1,11 @@
 .employee-list-container{
     margin: 50px 150px;
+    padding-bottom: 50px;
+
+    .logout-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 16px 0px;
+    }
 }

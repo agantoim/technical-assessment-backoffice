@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, NgZone, OnInit, Output, ViewChild } from '@angular/core';
 import { EmployeeListDataModel } from '../../shared/model/employee-list-data.model';
 import { PaginationModel } from 'src/app/shared/model/pagination.model';
 import { EmployeeListTableHeaderModel } from '../../shared/model/employee-list-table-header.model';
@@ -6,11 +6,13 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { EMPLOYEE_DATABASE } from 'src/app/shared/constant/employee-data.const';
 import { EMPLOYEE_TABLE_HEADER } from '../../shared/const/employee-table-header.const';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
     selector: 'app-employee-list-data',
     templateUrl: './employee-list-data.component.html',
-    styleUrls: ['./employee-list-data.component.scss']
+    styleUrls: ['./employee-list-data.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class EmployeeListDataComponent implements OnInit {
 
@@ -20,10 +22,16 @@ export class EmployeeListDataComponent implements OnInit {
     @Input()
     public employeeListData: EmployeeListDataModel[];
 
+    @Output()
+    public onClickEdit: EventEmitter<void> = new EventEmitter<void>();
+
+    @Output()
+    public onClickDelete: EventEmitter<void> = new EventEmitter<void>();
+
     public employeeTableDataSource: MatTableDataSource<EmployeeListDataModel>;
 
     constructor(
-        private router: Router
+        private router: Router,
     ) { }
 
     ngOnInit(): void {
@@ -45,12 +53,12 @@ export class EmployeeListDataComponent implements OnInit {
 
     onEditEmployeeData(employeeData: EmployeeListDataModel, event: Event) {
         event.stopImmediatePropagation();
-        console.log('Edit clicked:', employeeData);
+        this.onClickEdit.emit();
     }
 
     onDeleteEmployeeData(employeeData: EmployeeListDataModel, event: Event) {
         event.stopImmediatePropagation();
-        console.log('Delete clicked:', employeeData);
+        this.onClickDelete.emit();
     }
 
 }

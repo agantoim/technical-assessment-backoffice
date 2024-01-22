@@ -1,5 +1,6 @@
 .table-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -35,6 +36,14 @@
 
     .delete-icon {
         color: red;
+    }
+
+    .pagination {
+        width: 95%;
+        mat-paginator {
+            background-color: transparent;
+            color: #edeced;
+          }
     }
 }
   

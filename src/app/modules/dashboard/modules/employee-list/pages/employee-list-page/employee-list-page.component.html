@@ -1,5 +1,14 @@
+<div>
+    <app-base-toaster *ngIf="toasterShow" [message]="toasterMessage" [type]="toasterType"
+        (onClose)="onToasterClose()"></app-base-toaster>
+</div>
 <div class="employee-list-container">
+    <div class="logout-button">
+        <button mat-button class="btn btn-md" (click)="onLogOutButtonClicked()">
+            Log Out
+        </button>
+    </div>
     <app-employee-list-filter></app-employee-list-filter>
-    <app-employee-list-data [employeeTableHeader]="employeeTableHeader"
-        [employeeListData]="employeeListData"></app-employee-list-data>
+    <app-employee-list-data [employeeTableHeader]="employeeTableHeader" [employeeListData]="employeeListData"
+        (onClickEdit)="onEditClicked()" (onClickDelete)="onDeleteClicked()"></app-employee-list-data>
 </div>

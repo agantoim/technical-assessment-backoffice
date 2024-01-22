@@ -17,12 +17,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { BaseToasterComponent } from 'src/app/shared/components/base-toaster/base-toaster.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 @NgModule({
 	declarations: [
 		LoginComponent,
-		LoginCardComponent,
-		BaseToasterComponent
+		LoginCardComponent
 	],
 	imports: [
 		CommonModule,
@@ -38,7 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		MatProgressSpinnerModule,
 		MatIconModule,
 		MatButtonModule,
-
+		ComponentsModule
 	]
 })
 export class LoginPageModule { }
